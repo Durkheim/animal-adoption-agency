@@ -1,0 +1,8 @@
+<h3>You are logged in as <%=@user.username%></h3>
+
+<ul>
+  <%@state.species.each do |species|%>
+  <li><a href="/state/<%=@state_id%>/<%=species.id%>/breeds"> <%=species.name%></a></li>
+  <%end%>
+</ul>
+
