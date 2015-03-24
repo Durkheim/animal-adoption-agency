@@ -5,7 +5,9 @@
   <li><%=breed.name%></li>
     <ul>
       <%breed.animals.each do |animal|%>
-      <li> <a href="/animals/<%=animal.id%>"><%=animal.name%></li>
+        <% if animal.state_id == @state_id.to_i %>
+          <li> <a href="/animals/<%=animal.id%>"><%=animal.name%></a></li>
+        <% end %>
       <%end%>
     </ul>
   <%end%>

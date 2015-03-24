@@ -35,20 +35,13 @@ get '/state/:state_id' do
   erb :"species/show"
 end
 
-get '/state/:state_id/species/:species_id' do
+get '/state/:state_id/species/:species_id/breeds' do
   @user = User.find_by(id: session[:user_id])
+  @species_id = params[:species_id]
+  @state_id = params[:state_id]
   @breeds = Breed.where(species_id: params[:species_id])
-  @animals = Animal.find_by(state_id: params[:state_id])
-
   erb :"breeds/show"
 end
-
-# get '/species/:species_id/breeds' do
-#   @user = User.find_by(id: session[:user_id])
-#   @species_id = params[:species_id]
-#   @breeds = Breed.where(id: params[:species_id])
-#   erb :"breeds/show"
-# end
 
 get '/animals/:id' do
   @user = User.find_by(id: session[:user_id])

@@ -2,7 +2,7 @@
 
 <ul>
   <%@state.species.each do |species|%>
-  <li><a href="/state/<%=@state_id%>/<%=species.id%>/breeds"> <%=species.name%></a></li>
+  <li><a href="/state/<%= @state_id%>/species/<%=species.id%>/breeds"> <%=species.name%></a></li>
   <%end%>
 </ul>
 
