@@ -1,14 +1,16 @@
 <h3>You are logged in as <%=@user.username%></h3>
 
 <ul>
-  <%@breeds.each do |breed|%>
+  <%@state.breeds.each do |breed| %>
+  <% if breed.species == @species %>
   <li><%=breed.name%></li>
     <ul>
       <%breed.animals.each do |animal|%>
-        <% if animal.state_id == @state_id.to_i %>
+        <% if animal.state == @state %>
           <li> <a href="/animals/<%=animal.id%>"><%=animal.name%></a></li>
         <% end %>
       <%end%>
     </ul>
+    <%end%>
   <%end%>
 </ul>
