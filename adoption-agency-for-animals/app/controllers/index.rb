@@ -51,4 +51,21 @@ get '/animals/:id' do
   erb :"animals/show"
 end
 
+post '/animals/:id/adopt' do
+  puts params
+  @user = User.find_by(id: session[:user_id])
+  @animal_id = params[:id]
+  @animal = Animal.find_by(id: params[:id])
+  @animal.update_attributes(adopted: true)
+  puts @animal
+  redirect "/animals/#{@animal.id}"
+end
+
+get '/adoption_form' do
+  @animal = Animal.create(params[:animal])
+  erb :"animals/new"
+end
+
+
+
 

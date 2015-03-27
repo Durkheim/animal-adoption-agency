@@ -3,3 +3,13 @@
 <h1><%=@animal.post.title%></h1>
 
 <p><%=@animal.post.body%></p>
+
+<%if @animal.adopted == false%>
+<p>Adopted?: No</p>
+<%else%>
+<p>Adopted?: Yes </p>
+<%end%>
+
+<form action ="/animals/<%=@animal.id%>/adopt" method="POST">
+<input type="submit" value="Adopt">
+</form>

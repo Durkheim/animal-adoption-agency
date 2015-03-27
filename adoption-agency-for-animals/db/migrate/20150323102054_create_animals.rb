@@ -6,6 +6,7 @@ class CreateAnimals < ActiveRecord::Migration
       t.belongs_to :state
       t.belongs_to :owner
       t.belongs_to :adopter
+      t.boolean :adopted, default: false
     end
   end
 end
